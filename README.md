@@ -1,8 +1,6 @@
 # JPAExample
 
-Download or git clone the project
-
-# build
+Download the project
 
 Build it with: gradlew build
 
@@ -10,7 +8,6 @@ Convert the project into an Eclipse project with: gradlew eclipse
 
 Import the project inside Eclipse: File -> Import -> General -> Existing projects into workspace
 
-# Run
 Launch the main program: https://github.com/charroux/JPAExample/blob/master/src/main/java/com/efrei/JPAExample/JpaExampleApplication.java
 
 
@@ -21,6 +18,3 @@ In the login page make sure that you use jdbc:h2:mem:testdb as JDBC URL and org.
 
 Web Service: http://localhost:8080/cities
 
-# Transactions management
-
-https://github.com/charroux/JPAExample/blob/master/src/main/java/com/efrei/JPAExample/TransactionManagement.java

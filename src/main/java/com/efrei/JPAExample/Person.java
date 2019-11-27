@@ -1,6 +1,9 @@
 package com.efrei.JPAExample;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Person {
@@ -14,8 +17,9 @@ public class Person {
 		super();
 	}
 
-	public Person(String name, int age) {
+	public Person(long id, String name, int age) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.age = age;
 	}
@@ -30,7 +34,6 @@ public class Person {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {
 		return id;
 	}
