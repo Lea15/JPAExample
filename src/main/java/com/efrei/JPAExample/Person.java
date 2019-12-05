@@ -1,17 +1,18 @@
 package com.efrei.JPAExample;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Person {
-	
+
+	private List<Car> car = new ArrayList<Car>();
 	private long id;
 	private String name;
 	private int age;
-	private City city;
 	
 	public Person() {
 		super();
@@ -23,14 +24,14 @@ public class Person {
 		this.name = name;
 		this.age = age;
 	}
-	
-	@ManyToOne
-	public City getCity() {
-		return city;
-	}
 
-	public void setCity(City city) {
-		this.city = city;
+	@OneToMany(mappedBy="person", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
+	public List<Car> getCar() {
+		return car;
+	}
+	public void setCar(List<Car> car) {
+		this.car = car;
 	}
 
 	@Id
@@ -52,9 +53,4 @@ public class Person {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	
-	
-	
-
 }

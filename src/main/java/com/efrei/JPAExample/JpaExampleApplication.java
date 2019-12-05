@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
@@ -21,33 +20,18 @@ public class JpaExampleApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(CityRepository repository) {
+	public CommandLineRunner demo(CarRepository repository) {
 		return (args) -> {
 			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			/*SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = dateFormat.parse("2018-10-09");
-			log.info(date.toString());
-			
-			City paris = new City("Paris");
-			Person tintin = new Person(1, "Tintin", 20);
-			paris.getPersons().add(tintin);
-			tintin.setCity(paris);
-			
-			repository.save(paris);
-			
-			log.info("Cities found with findAll():");
-			log.info("-------------------------------");
-			for (City city : repository.findAll()) {
-				log.info(city.toString());
-			}
-			log.info("");
+			log.info(date.toString());*/
 
-			log.info("City found with findName('Paris'):");
-			log.info("--------------------------------------------");
-			repository.findByName("Paris").forEach(city -> {
-				log.info(city.toString());
-			});
-			
+			Person lea = new Person(1, "Lea", 20);
+			Car ferrari = new Car(1, "1122", "ferrari", 5, 100, true, 10);
+			lea.getCar().add(ferrari);
+			ferrari.setPerson(lea);
+			repository.save(lea);
 		};
 	}
 
